@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--網頁標題-->
+    <title>俄羅斯方塊_by_ㄇㄇ</title>  
+    <!--網頁圖示-->
+    <link rel="shortcut icon" href="./image/icon.png" type="image/x-icon">
+    <!-- 嵌入CSS-->
+    <link rel="stylesheet" href="./Tetris_MM.css">    
+</head>
+<body>
+        <!-- id = 容器 + 外邊框 -->
+    <div id="container">
+        <!--網格-->
+        <div class = "grid"></div>
+        <!--控制台   大型的按鈕-->
+        <div class = "controller">  
+            <!--開始 / 暫停按鈕-->
+            <button id="start-button1">Start / Pause</button>
+            <!--滑鼠點擊控制方塊的區域-->   <!--相異  15行-->
+            <div class="intro">
+                <!--Ctrl旋轉--><!-- disabled = 禁止使用 -->
+                <div class="KeyBoard_01" disabled>Rotate</div>
+                <!--方向鍵 ↑ ，與 ← ↓ → 不同排-->  
+                <div class="KeyBoard_02" disabled>
+                    <button class="KeyBoard_up">↑</button>        
+                </div>
+                <!--方向鍵 ← --> 
+            <div class="KeyBoard_03" disabled>
+                <div>
+                    <button class="KeyBoard_up">←</button>
+                    <p>Left</p>
+                </div>                
+                <!--方向鍵 ↓ --> 
+                <div>
+                    <button class="KeyBoard_up">↓</button>
+                    <p>Down</p>
+                </div>
+                <!--方向鍵 → --> 
+                <div>
+                    <button class="KeyBoard_up">→</button>
+                    <p>Right</p>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <!--右方資訊欄-->
+    <div class="info">
+        <!--右側:下一個出現的方塊-->                  
+        <h2>NEXT</h2>
+        <div class="mini-grid"></div>
+        <!--分數框-->  
+        <h3>Score: <span id="score">0</span></h3>
+        <!--開始 / 暫停按鈕-->
+        <button id="start-button">Start / Pause</button>
+
+        <div class="intro">
+            <div class="KeyBoard0" disabled>
+                <!--Ctrl按鈕 / Rotate -->
+                <button class="rotate">Ctrl</button><span>Rotate🔁</span></div>
+                <!-- ↑ 上方的旋轉提示 -->
+                <!--方向鍵 ↑ -->  
+                <div class="KeyBoard_01" disabled>Rotate🔁</div>
+                <div class="KeyBoard_02" disabled>
+                    <button class="up">↑</button>
+                </div>
+                <div class="KeyBoard_03" disabled>
+                    <!--方向鍵 ← + Left -->  
+                    <div>
+                      <button class="left">←</button>
+                      <P>Left</P>
+                    </div>
+                    <!--方向鍵 ↓ + Down -->  
+                    <div>
+                      <button class="down">↓</button>
+                      <P>Down</P>
+                    </div>
+                    <!--方向鍵 → + Right -->
+                    <div>
+                      <button class="right">→</button>
+                      <P>Right</P>
+                    </div>
+                </div>
+
+            </div>
+        </div>                
+    </div>
+
+    <div id="difficulty-container">
+        <p id="difficulty-title">請選擇遊戲難度</p>
+        <button id="easy-mode">簡單</button>
+        <button id="hard-mode">困難</button>
+      </div>
+
+    <script src="./Select.js"></script>
+    
+
+</body>
+</html>
