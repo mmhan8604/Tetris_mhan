@@ -11,14 +11,12 @@ const view = {
             } else {
                 girds += '<div class="taken"></div>';
             }
-        }
-        // 將生成的格子插入到主要遊戲板（.grid）中 
+        }   
         grid.innerHTML = girds;
-
         // 右側迷你遊戲板     
         const miniGrid = document.querySelector(".mini-grid");
         miniGrids = "";
-        // 16 個迷你格子  顯示於迷你遊戲板
+        // 16 個迷你格子
         for (let j = 0; j < 16; j++) {
             miniGrids += '<div class=""></div>';
         }
@@ -33,7 +31,7 @@ const view = {
         model.currentTetromino.forEach((index) =>
         model.squares[model.currentPosition + index].classList.add("tetromino")
         );
-        // currentTetromino 搜尋對應的 squares元素 的背景顏色為 model.colors[model.index]，這使用在方塊的顏色
+        //方塊的顏色
         model.currentTetromino.forEach(
         (index) =>
         (model.squares[model.currentPosition + index].style.backgroundColor =
@@ -47,7 +45,7 @@ const view = {
         model.currentTetromino.forEach((index) =>
         model.squares[model.currentPosition + index].classList.remove("tetromino")
         );
-        // currentTetromino 搜尋對應的 squares元素 將元素的背景顏色設為空字串，用於清除先前的方塊顏色。
+        //清除先前的方塊顏色。
         model.currentTetromino.forEach(
         (index) =>
         (model.squares[model.currentPosition + index].style.backgroundColor =
@@ -57,7 +55,6 @@ const view = {
     
     // 下一個方塊
     displayNextTetromino() {
-        // 選擇(".mini-grid div") 類別的 HTML 元素，表示迷你遊戲板中的每個格子
         const displaySquares = document.querySelectorAll(".mini-grid div");
         // 清除先前顯示的下一個方塊
         displaySquares.forEach((square) => {
@@ -75,7 +72,6 @@ const view = {
     // 移除滿行的方塊
     checkAndRemoveGrids() {
         for (let i = 0; i < 200; i += model.width) {
-            // 一行方塊
             const row = [
             i,
             i + 1,
@@ -92,9 +88,8 @@ const view = {
             const isARowTetrominoes = row.every((index) =>
             model.squares[index].classList.contains("taken")
             );
-            // 如果這一行的方塊都被占滿，表示滿行，滿行時，會將該行的方塊清除，並更新計數器。
+            // 如果這一行方塊都被占滿，表示滿行，滿行時，會將該行的方塊清除，並更新計數器。
             if (isARowTetrominoes) {
-            // model中的計數器  追蹤已被移除的行數    
             model.numOfRemovedRow++;
             
             const grid = document.querySelector(".grid");
@@ -104,11 +99,9 @@ const view = {
                 // 清空方塊的背景顏色，變為空白。
                 model.squares[index].style.backgroundColor = "";
             });
-            // splice()移除滿行的方塊，將其保存在 squaresRemoved 變數中。
             const squaresRemoved = model.squares.splice(i, model.width);
             // 移除滿行的方塊  重新加入concat()遊戲板的頂部。
             model.squares = squaresRemoved.concat(model.squares);
-            // 重新渲染
             model.squares.forEach((cell) => grid.appendChild(cell));
           }
         }
@@ -602,7 +595,7 @@ const model = {
         model.currentPosition = 4;
         // 紀錄現在的index，使旋轉時知道是哪種Tetromino在旋轉
         model.index = model.nextIndex;
-        // 使用亂數指定下一個Tetromino
+        // 指定下一個Tetromino
         model.nextIndex = utility.randomIndex(model.tetrominoes());
     },
 
@@ -610,9 +603,8 @@ const model = {
     initiGame() {
         // 建立遊戲主畫面的網格
         view.creatGirds();
-        // 選擇一個隨機形狀的俄羅斯方塊，並將其索引指定給 model.index
+        // 選擇一個隨機形狀的俄羅斯方塊
         model.index = utility.randomIndex(model.tetrominoes());
-        // 建立指定形狀的俄羅斯方塊，並指定給 model.currentTetromino。
         model.currentTetromino = model.createTetromino();
         // model.squares 被初始化為遊戲主畫面中，所有的方格 div 元素的陣列
         model.squares = Array.from(document.querySelectorAll(".grid div"));
@@ -620,23 +612,20 @@ const model = {
 
     // 建立下一個和下下一個俄羅斯方塊的形狀。
     createNextNextTetromino() {
-        // 隨機的俄羅斯方塊，指定給 model.nextIndex
         model.nextIndex = utility.randomIndex(model.tetrominoes());
         // 建立指定形狀的俄羅斯方塊，並指定給 model.nextTetromino。width 被設定為 4，代表下一個俄羅斯方塊的網格寬度。
         model.nextTetromino = model.createTetromino(0, model.nextIndex, 4);
     },
 
     // 更新遊戲分數 model.score 、調整遊戲速度 model.speed
-    // addScore 的函式
     addScore() {
-        // HTML 中具有 id 為 "score" 的元素，並將其存放在 score 變數中。
+        // HTML 中具有 id = "score" 
         const score = document.getElementById("score");
-        // switch 陳述式，根據 model.numOfRemovedRow 的值進行不同處理
         switch (model.numOfRemovedRow) {
-            // numOfRemovedRow 的值為 0，表示沒有消除行數。什麼都不做。沒有加分
+            // numOfRemovedRow 的值為 0，表示沒有消除行數。
             case 0:
                 break;
-            // numOfRemovedRow 的值為 1，表示消除了一行，則將 model.score 加 2 分，並提升難度，降低遊戲速度。這裡使用了三元運算符來確保速度不會低於 100。
+            // numOfRemovedRow 的值為 1，表示消除了一行，則將 model.score 加 2 分，並提升難度，降低遊戲速度。速度不會低於 100。
             case 1:
                 model.score += 2;
                 model.speed = model.speed < 100 ? 100 : model.speed - 20;
@@ -656,10 +645,8 @@ const model = {
         }
         // 使用 clearInterval 清除目前的計時器，改變原有速度的遊戲進行
         clearInterval(model.timerId);
-        // model.timerId 設置為 null，以便重新設定計時器
+        // model.timerId 設置為 null，重新設定計時器
         model.timerId = null;
-        // setInterval函式 設定一個計時器，每隔 model.speed 毫秒，就執行 controller.moveDown 函式一次
-        // 將 setInterval 返回的 ID 存儲在 model.timerId 中，執行後清除上一個計時器，然後重新設定一個新的計時器，並以新的速度執行 
         model.timerId = setInterval(controller.moveDown, model.speed);
         // model.numOfRemovedRow 重置為 0，以便進行下一輪計算。
         model.numOfRemovedRow = 0;

@@ -1,3 +1,4 @@
+//載入遊戲腳本
 function loadGameScript(scriptUrl) {
     // 移除現有腳本
     const existingScript = document.getElementById('game-script');
@@ -11,17 +12,19 @@ function loadGameScript(scriptUrl) {
     document.head.appendChild(script);
 }
 
-function hideDifficultySelector() {
-    // 隱藏難度選擇
+// 隱藏難度選擇
+function hideDifficultySelector() {    
     document.getElementById('difficulty-container').style.display = 'none';
 }
 
+// 載入簡單版
 document.getElementById('easy-mode').addEventListener('click', function() {
-    loadGameScript('Easy.js'); // 載入簡單版
+    loadGameScript('Easy.js'); 
     hideDifficultySelector();
 });
 
+// 載入困難版
 document.getElementById('hard-mode').addEventListener('click', function() {
-    loadGameScript('Hard.js'); // 載入困難版
+    loadGameScript('Hard.js'); 
     hideDifficultySelector();
 });
