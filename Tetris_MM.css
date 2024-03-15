@@ -1,40 +1,38 @@
-/* 待修正 可修正 待補充 */
 
-/* body 選擇器 */ 
 body {                                             
-    display: flex;                     /* 設置 display 屬性為 flex */                                                         
-    align-items: center;               /*  Flexbox 容器的內容 垂直置中 */                                     
-    justify-content: center;           /*  Flexbox 容器的內容 水平置中 */                                     
-    background-image: url("./image/test4.jpg");         /*  背景圖  ("./image/bg-test.png")  待修正 */                                     
+    display: flex;                                                                            
+    align-items: center;               /*  垂直置中 */                                     
+    justify-content: center;           /*  水平置中 */                                     
+    background-image: url("./image/test4.jpg");         /*  背景圖  */                                     
     background-repeat:repeat;
     background-attachment:fixed;
     background-position:center;
 }
 
-/* 俄羅斯方塊顯示區域 */ 
+
 .grid {                               
-    width: 300px;                  /* grid 元素的寬度 : 300px */
-    height: 615px;                 /* grid 元素的高度 : 600px */
+    width: 300px;                  
+    height: 615px;                 
     background-color: rgb(7, 66, 105);
-    display: flex;                 /* grid 轉為Flexbox 容器 */
-    flex-wrap: wrap;               /* grid 的 flex-wrap 屬性為 wrap ， 可以多行 */   
+    display: flex;                 /* Flex 容器 */
+    flex-wrap: wrap;               /* 多行 */   
 }
 
-/* 遊戲區方塊大小 */
+/* 方塊大小 */
 .grid div {
   height: 30px;
   width: 30px;
 } 
 
-/* 最外邊框 */
+
 #container {
     margin-top: 10vh;
-    border: rgb(3, 45, 70) 7px solid;   /* 使用凸線(ridge)  可修正 */  /* 相異 */
+    border: rgb(3, 45, 70) 7px solid;   
     display: flex;
-    border-radius: 15px;                  /* 邊角為圓角 */  /* 相異 */
+    border-radius: 15px;                  
 }
 
-/* 待補充 */
+
 .tetromino {
     border: solid 3px;
     border-color: white gray gray white;
@@ -43,118 +41,112 @@ body {
     box-sizing: border-box;
 }
 
-/* 右方 小方框 : 下一個出現的方塊 */
-/* 長寬、顏色可修正 */
+/* 下一個出現的方塊 */
 .mini-grid {
-    margin: 0px 50px 10px 50px;                     /* 外邊距 */                       
+    margin: 0px 50px 10px 50px;                                         
     width: 120px;                       
     height: 120px;                      
     display: flex;                      
-    flex-wrap: wrap;                               /* .mini-grid 的 flex-wrap 屬性為 wrap ， 可以多行 */     
-    background-color: rgb(211, 212, 197);        /* 內部水泥灰色 */              
-    border: rgba(59, 49, 49, 0.466) 5px ridge;   /* 使用凸線(ridge) 可修正 */    /* 相異 */               
+    flex-wrap: wrap;                                   
+    background-color: rgb(211, 212, 197);              
+    border: rgba(59, 49, 49, 0.466) 5px ridge;                
 }
 
-/* 待補充 */
+/* 下一個出現的方塊長寬 */
 .mini-grid div {
     height: 30px;
     width: 30px;
   }
 
-/*  右方中資訊欄  */
-.info {                                         /* info 選擇器 */ 
+/*  右測資訊欄  */
+.info {                                         
     border-left: rgb(3, 45, 70) 5px solid;
-    display: flex;                              /* 設置 display 屬性為 flex */ 
-    flex-direction: column;                     /* Flexbox 容器的主軸方向為垂直 */        
-    align-items: center;                        /* 垂直置中 */      
+    display: flex;                             
+    flex-direction: column;                     /* 主軸垂直 */        
+    align-items: center;                           
     background-color: rgb(132, 181, 209);                              
 }
 
-/*  右方 NEXT 小資訊欄  可修正 */
+/* NEXT */
 h2 {
-    border: rgba(4, 37, 37, 0.692) 4px ridge; /* 使用凸線(ridge) 可修正 */ /* 相異 */
-    padding: 10px 25px 10px 25px;               /* 內邊距 (與文字的距離) */
+    border: rgba(4, 37, 37, 0.692) 4px ridge;
+    padding: 10px 25px 10px 25px;              
 }
 
-/* 右方 Score分數框 */ 
+/*  Score分數 */ 
 h3 {                                        
-    border: rgb(0, 38, 110) 4px groove;     /* 使用凹線(groove) 可修正 */     /* 相異 */                           
-    padding: 10px 15px 10px 15px;             /* 內邊距 (與文字的距離) */                          
-    border-radius: 80px;                      /* 圓邊角--(更圓) */      /* 相異 */            
+    border: rgb(0, 38, 110) 4px groove;                              
+    padding: 10px 15px 10px 15px;                                
+    border-radius: 80px;                      /        
 }
 
-/* 右方中間 Start / Pause 按鈕  id="start-button"  */ 
+/* Start / Pause 按鈕 */ 
 #start-button {                             
-    position: relative;                      /* 元素為 相對位置 */        
+    position: relative;                      /* 相對位置 */        
     background-color: rgb(235, 121, 27);                                  
-    border: 5px outset rgb(223, 69, 8) ;   /* 使用浮出線(outset) 可修正 */    /* 相異 */
-    font-size: 16px;                         /* 字體大小 16px */        
-    color: rgb(0, 0, 0);                   /* 字體顏色 */      
-    padding: 10px;                           /* 內邊距 */    
-    width: 130px;                            /* 按鈕寬度 */    
-    text-align: center;                      /* 文字 - 垂直置中 */        
+    border: 5px outset rgb(223, 69, 8) ;   
+    font-size: 16px;                             
+    color: rgb(0, 0, 0);                   
+    padding: 10px;                            
+    width: 130px;                            
+    text-align: center;                       
     transition-duration: 0.4s;               /* 0.4s後有漸變效果 */                
-    text-decoration: none;                   /* 不要使用下劃線 */            
-    overflow: hidden;                        /* 隱藏 內容中 超出的文字或圖片 */        
-    cursor: pointer;                         /* 滑鼠游標設置  在按鈕上方變成手指 */        
-    margin-top: 15px;                        /* 外邊距-上 */         
+    /*text-decoration: none;                    不要使用下劃線 */            
+    overflow: hidden;                        /* 隱藏超出的文字或圖片 */        
+    cursor: pointer;                         /* 按鈕上變成手指 */        
+    margin-top: 15px;                        
 }
 
 /* 為start-button 添加一個偽元素 */
 #start-button:after {
-    content: "";                            /* 創建一個空的內容。為了使 :after 偽元素被視為一個實際元素 */  
-    background: rgb(209, 18, 4);                  /* 偽元素的背景色 */          
-    display: block;                         /* 偽元素設置維block，可以設定其寬度、高度 */ 
+    content: "";                            /* 創建一個空的內容。使 :after 偽元素被視為一個實際元素 */  
+    background: rgb(209, 18, 4);                        
+    display: block;                         
     position: absolute;                     /* 絕對位置 */     
-    padding-top: 300%;                      /* 內邊距 上 為親元素高度的300% */    
-    padding-left: 350%;                     /* 內邊距 左 為親元素寬度的350% */    
-    margin-left: -20px !important;          /* 外邊距 左 為 -20px */                
-    margin-top: -120%;                      /* 外邊距 上 為 -120% */    
-    opacity: 0;                             /* 透明度 0 ，偽元素一開始不可見 */
-    transition: all 0.9s;                   /* 動畫時間為 0.9秒 */      
+    padding-top: 300%;                       
+    padding-left: 350%;                     
+    margin-left: -20px !important;                       
+    margin-top: -120%;                       
+    opacity: 0;                             /* 透明度0 ，偽元素一開始不可見 */
+    transition: all 0.9s;                   /* 動畫時間 0.9秒 */      
 }
 
 /* 為start-button 添加一個 偽元素 及 active 狀態 */
 #start-button:active:after {
     padding: 0;
     margin: 0;
-    opacity: 1;                     /*透明度為 1， 為可見 */
-    transition: 0s;                 /*動畫時間為 0秒 瞬間生效 */
+    opacity: 1;                   
+    transition: 0s;                
 }
 
-/* 待補充 */
-.intro {
-    width: 75%;         /* 寬度75% */
-}
 
-/* 右方資訊欄 、 Start / Pause 按鈕的容器位置 */
 .KeyBoard0 {
-  display: flex;                    /* 設置 display 屬性為 flex */
-  align-items: center;              /*  Flexbox 容器的內容 垂直置中 */
-  justify-content: space-around;    /*  平均分配寬度和間距 */
+  display: flex;                  
+  align-items: center;              
+  justify-content: space-around;  
   margin: 20px 0 20px 0;            
 }
-/* 待補充 */
+
 .KeyBoard_01 {
     display: flex;
     justify-content: center;
     margin-top: 10px;
 }
 
-/* 方向鍵 ↑ */
+
 .KeyBoard_02 {
     display: flex;
     justify-content: center;
     margin: 5px 0px 5px 0px;
 }
 
-/* <!--方向鍵 ↑ ← ↓ → 集合整齊-->  */
+
 .KeyBoard_03 {
     display: flex;
     justify-content: center;
 }
 
-/* 待補充 */
+
 .KeyBoard_03 div {
     display: flex;
     flex-direction: column;
@@ -162,60 +154,37 @@ h3 {
     margin: 5px;
 }
 
-/* 方向鍵 ← */
+
 .KeyBoard_03 p {
     margin-top: 5px;
 }
 
-/* 右方資訊欄 Ctrl 、 ↑ ← ↓ → 按鈕大小 */
+
 .intro button {
   height: 35px;
   width: 35px;
 }
 
-/* 右方資訊欄 寬度 */
 .KeyBoard0 button {
     width: 70px;
 }
 
-/* 右方要放置資訊欄 的範圍 */
+/* 響應式小視窗的控制區*/
 .controller {
-  background-color: rgb(126, 136, 163);    /* 右方要放置資訊欄 範圍的顏色 */
+  background-color: rgba(94, 145, 233, 0.787);    
   display: flex;
-  justify-content: center;                   /* 水平置中 */
-  padding: 5px 10px 15px 10px;
+  justify-content: center;                  
+  padding: 10px 10px 10px 10px;
 }
 
-/* 響應式設計 */
-@media (max-width: 768px) {
-    .info {
-      display: none;             /* 視窗寬度 <= 768 px 時，隱藏（display: none;） */   
-    }
-  
-    .intro {
-      justify-content: center;   /* 視窗寬度 <= 768 px 時，水平置中 */           
-    }
-  
-    #container {
-      flex-direction: column;    /* 視窗寬度 <= 768 px時，Flexbox 方向改為列方向 */           
-    }
-}
-
-/* 響應式設計  大型螢幕上隱藏 .controller  (大的Ctrl 、 ↑ ← ↓ → 按鈕)   */
-@media screen and (min-width: 768px) {
-  .controller {
-    display: none;
-  }
-}
-
-/* 遊戲結束提示的樣式 */
+/* 結束提示 */
 .game-over-container {              
   position: absolute;              /* 絕對位置 */
-  top: 55%;
+  top: 45%;
   left: 50%;  
   transform: translate(-50%, -50%); /* 容器居中 */
   background-color: white;
-  padding: 20px;
+  padding: 15px 20px 20px 20px;
   border: 2px solid black;
   text-align: center;
   z-index: 10;
@@ -230,29 +199,50 @@ h3 {
 
 
 #difficulty-container {
-  position: absolute; /* 或使用其他定位方式，依據您的頁面佈局 */
-  top: 55%; /* 調整為所需位置 */
-  left: 50%; /* 調整為所需位置 */
-  transform: translate(-50%, -50%); /* 以容器的中心點為基準進行定位 */
-  background-color: #dbd8d8; /* 選擇您想要的背景顏色 */
-  border: 3px solid rgb(3, 45, 70); /* 選擇邊框的顏色和大小 */
+  position: absolute; 
+  top: 45%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background-color: #dbd8d8; 
+  border: 3px solid rgb(3, 45, 70); 
   text-align: center;
   padding: 20px;
 }
 
 .difficulty-title {
-  font-size: 3em; /* 調整為所需字體大小 */
-  margin-bottom: 10px; /* 標題和按鈕之間的距離 */
+  font-size: 3em;
+  margin-bottom: 10px; 
 }
 
 #easy-mode, #hard-mode {
-  margin: 5px; /* 按鈕間距 */
-  padding: 10px 20px; /* 按鈕內邊距 */
-  font-size: 1em; /* 按鈕字體大小 */
-  cursor: pointer; /* 滑鼠懸停時顯示指標 */
+  margin: 5px;
+  padding: 10px 20px; 
+  font-size: 1em; 
+  cursor: pointer; 
 }
 
 .tetromino-ugly {
   opacity: 0;
   border: 0;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .info {
+    display: none;               
+  }
+
+  .intro {
+    justify-content: center;           
+  }
+
+  #container {
+    flex-direction: column;    /*改為直列方向 */           
+  }
+}
+
+@media screen and (min-width: 768px) {
+.controller {
+  display: none;
+}
 }
