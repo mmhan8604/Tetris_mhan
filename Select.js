@@ -1,11 +1,11 @@
-//載入遊戲腳本
+//載入遊戲
 function loadGameScript(scriptUrl) {
-    // 移除現有腳本
+    // 移除現有遊戲
     const existingScript = document.getElementById('game-script');
     if (existingScript) {
         existingScript.remove();
     }
-    // 創建新腳本
+    // 創建新遊戲
     const script = document.createElement('script');
     script.id = 'game-script';
     script.src = scriptUrl;
